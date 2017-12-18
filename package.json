@@ -14,7 +14,7 @@
     "eject": "react-scripts eject",
     "deploy": "npm run build && gh-pages -d build"
   },
-  "homepage": "https://kirkdrichardson.github.io/carissa-fit",
+  "homepage": "http://carissa.fit",
   "devDependencies": {
     "gh-pages": "^1.1.0"
   }

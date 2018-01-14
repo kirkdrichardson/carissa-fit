@@ -1,0 +1,6 @@
+"extends": "airbnb"
+"rules": {
+  "comma-dangle": ["error", "never"],
+  "jsx-quotes": ["error", "prefer-single"],
+  "react/jsx-filename-extension": [1, { "extensions": [".js"] }]
+}

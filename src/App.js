@@ -1,21 +1,25 @@
-import React, { Component } from 'react';
-import './App.css';
-import wreath from './wreath.png';
+import React from 'react';
+import styled from 'styled-components';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={wreath} className="App-logo" alt="logo" />
-          <h1 className="App-title">Merry Christmas!</h1>
-        </header>
-        <p className="App-intro">
-          {"It'll probably take a few months to build the site, but once we talk about design & content, I can get started. We can wait to release it until whenever you're ready. "}
-        </p>
-      </div>
-    );
-  }
-}
+import Header from './common/Header';
+
+import style from './global/Style';
+
+const App = () =>
+  (
+    <MainContainer>
+      <Header />
+    </MainContainer>
+  );
+
+const MainContainer = styled.main`
+border: 1px dashed coral;
+
+  background-color: #222;
+  height: 100%;
+  width: 100%;
+  margin-top: ${style.headerHeight};
+  box-sizing: border-box;
+`;
 
 export default App;

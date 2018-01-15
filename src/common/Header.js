@@ -5,6 +5,7 @@ import TabBar from './TabBar';
 import IconLinkBar from './IconLinkBar';
 
 import style from './../global/Style';
+import color from './../global/Color';
 
 
 // TODO - add conditional logic to return a web header or mobile header depending on breakpoint prop
@@ -17,9 +18,9 @@ const Header = () =>
         </Logo>
       </LogoContainer>
       <NavSection>
-      <TabBarContainer>
-        <TabBar>
-          {
+        <TabBarContainer>
+          <TabBar>
+            {
             [
               { type: 'HOME', title: 'HOME' },
               { type: 'BLOG', title: 'BLOG' },
@@ -28,7 +29,7 @@ const Header = () =>
               { type: 'CONTACT', title: 'CONTACT' }
             ]
           }
-        </TabBar>
+          </TabBar>
         </TabBarContainer>
       </NavSection>
       <SocialLinkSection>
@@ -46,7 +47,7 @@ const Header = () =>
   );
 
 const HeaderWeb = styled.header`
-  background-color: green;
+  background-color: ${color.headerBackground};
   height: ${style.headerHeight};
   position: fixed;
   top: 0;

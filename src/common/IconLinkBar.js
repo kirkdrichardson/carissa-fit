@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import style from './../global/Style';
+import color from './../global/Color';
 
 const IconLinkBar = ({ children }) =>
   (
@@ -10,7 +11,7 @@ const IconLinkBar = ({ children }) =>
       <IconGroup>
         { children.map(icon =>
         (
-          <Link target='_blank' href={icon.link}>
+          <Link key={icon.type} target='_blank' href={icon.link}>
             <Icon className={`zmdi ${icon.zmdiClass}`} />
           </Link>
       ))}
@@ -19,15 +20,19 @@ const IconLinkBar = ({ children }) =>
   );
 
 const IconLinkBarContainer = styled.div`
-  ${style.cssSnippets.flexRow}
 `;
 
 const IconGroup = styled.div`
-
+  ${style.cssSnippets.flexRow}
+  flex-wrap: nowrap;
 `;
 
 const Link = styled.a`
   text-decoration: none;
+  color: ${color.linkColor};
+  :visited {
+    color: ${color.linkColor};
+  }
 `;
 
 const Icon = styled.i`

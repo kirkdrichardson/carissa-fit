@@ -1,0 +1,23 @@
+import React from 'react';
+import styled from 'styled-components';
+
+import Header from './../common/Header';
+
+import style from './../global/Style';
+import color from './../global/Color';
+
+const Home = () =>
+  (
+    <Container>
+      home
+    </Container>
+  );
+
+const Container = styled.div`
+border: 2px dashed green;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+`;
+
+export default Home;

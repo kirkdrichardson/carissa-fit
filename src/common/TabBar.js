@@ -8,7 +8,8 @@ import Tab from './Tab';
 
 const TabBar = ({ children }) => (
   <TabContainer>
-    { children.map(tab => <Tab key={tab.type}>{ tab.title }</Tab>) }
+    { children.map(tab =>
+      <Tab isActive={true} key={tab.type}>{ tab.title }</Tab>) }
   </TabContainer>
 );
 
@@ -17,7 +18,6 @@ TabBar.propTypes = {
 };
 
 const TabContainer = styled.nav`
-border: 1px dashed coral;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;

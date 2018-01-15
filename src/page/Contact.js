@@ -1,21 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { PageContainer, MainContentWrapper } from './../common/StyledComponentGlobal';
+import PhotoBar from './../common/PhotoBar';
+
 // import style from './../global/Style';
 // import color from './../global/Color';
 
 const Contact = () =>
   (
-    <Container>
-      Contact
-    </Container>
+    <PageContainer>
+      <PhotoBar />
+      <MainContentWrapper>
+        contact
+      </MainContentWrapper>
+    </PageContainer>
   );
-
-const Container = styled.div`
-border: 2px dashed green;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-`;
 
 export default Contact;

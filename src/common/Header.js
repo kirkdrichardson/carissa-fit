@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { observer } from 'mobx-react';
 
 import TabBar from './TabBar';
 import IconLinkBar from './IconLinkBar';
@@ -9,7 +11,7 @@ import color from './../global/Color';
 
 
 // TODO - add conditional logic to return a web header or mobile header depending on breakpoint prop
-const Header = () =>
+const Header = observer(({ routingStore }) =>
   (
     <HeaderWeb>
       <LogoContainer>
@@ -19,14 +21,14 @@ const Header = () =>
       </LogoContainer>
       <NavSection>
         <TabBarContainer>
-          <TabBar>
+          <TabBar routingStore={routingStore}>
             {
             [
-              { type: 'HOME', title: 'HOME' },
-              { type: 'BLOG', title: 'BLOG' },
-              { type: 'SERVICES', title: 'SERVICES' },
-              { type: 'TESTIMONIALS', title: 'TESTIMONIALS' },
-              { type: 'CONTACT', title: 'CONTACT' }
+              { key: 'HOME', title: 'HOME' },
+              { key: 'BLOG', title: 'BLOG' },
+              { key: 'SERVICES', title: 'SERVICES' },
+              { key: 'TESTIMONIALS', title: 'TESTIMONIALS' },
+              { key: 'CONTACT', title: 'CONTACT' }
             ]
           }
           </TabBar>
@@ -44,7 +46,11 @@ const Header = () =>
         </IconLinkBar>
       </SocialLinkSection>
     </HeaderWeb>
-  );
+  ));
+
+Header.propTypes = {
+  routingStore: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
+};
 
 const HeaderWeb = styled.header`
   background-color: ${color.headerBackground};

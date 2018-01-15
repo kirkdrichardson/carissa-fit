@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 // import style from './../global/Style';
 import color from './../global/Color';
 
-const Tab = ({ children, isActive }) =>
+const Tab = ({ children, isActive, returnCurrentPageComponent, pageKey }) => // eslint-disable-line object-curly-newline, max-len
   (
-    <TabContainer>
+    <TabContainer id={pageKey} onClick={e => returnCurrentPageComponent(e.currentTarget.id)}>
       { children }
       <TabUnderline isActive={isActive} />
     </TabContainer>
@@ -32,7 +32,9 @@ const TabUnderline = styled.div`
 
 Tab.propTypes = {
   children: PropTypes.string.isRequired,
-  isActive: PropTypes.bool
+  isActive: PropTypes.bool,
+  returnCurrentPageComponent: PropTypes.func.isRequired,
+  pageKey: PropTypes.string.isRequired
 };
 
 Tab.defaultProps = {

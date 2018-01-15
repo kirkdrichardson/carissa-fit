@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { observer } from 'mobx-react';
 
 import Header from './common/Header';
 import Home from './page/Home';
@@ -7,13 +9,20 @@ import Home from './page/Home';
 import style from './global/Style';
 import color from './global/Color';
 
-const App = () =>
+const App = observer(({ routingStore }) =>
   (
     <MainContainer>
-      <Header />
+      <Header routingStore={routingStore} />
+      {
+        routingStore.returnCurrentPageComponent(routingStore.currentPageKey)
+      }
       <Home />
     </MainContainer>
-  );
+  ));
+
+App.propTypes = {
+  routingStore: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
+};
 
 const MainContainer = styled.main`
 border: 1px dashed coral;

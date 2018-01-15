@@ -4,10 +4,10 @@ import styled from 'styled-components';
 // import style from './../global/Style';
 // import color from './../global/Color';
 
-const Home = () =>
+const Testimonial = () =>
   (
     <Container>
-      home
+      Testimonial
     </Container>
   );
 
@@ -18,4 +18,4 @@ border: 2px dashed green;
   box-sizing: border-box;
 `;
 
-export default Home;
+export default Testimonial;

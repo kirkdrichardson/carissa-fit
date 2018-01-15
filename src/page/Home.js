@@ -1,12 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import PhotoBar from './../common/PhotoBar';
+
 // import style from './../global/Style';
 // import color from './../global/Color';
 
 const Home = () =>
   (
     <Container>
+      <PhotoBar />
       home
     </Container>
   );

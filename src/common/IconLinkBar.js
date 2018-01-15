@@ -29,9 +29,9 @@ const IconGroup = styled.div`
 
 const Link = styled.a`
   text-decoration: none;
-  color: ${color.linkColor};
+  color: ${color.icon};
   :visited {
-    color: ${color.linkColor};
+    color: ${color.icon};
   }
 `;
 

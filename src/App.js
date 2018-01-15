@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 
 import Header from './common/Header';
-import Home from './page/Home';
 
 import style from './global/Style';
 import color from './global/Color';
@@ -16,7 +15,6 @@ const App = observer(({ routingStore }) =>
       {
         routingStore.returnCurrentPageComponent(routingStore.currentPageKey)
       }
-      <Home />
     </MainContainer>
   ));
 

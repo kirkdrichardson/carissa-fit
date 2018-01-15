@@ -1,8 +1,9 @@
 module.exports = {
-  linkColor: 'yellow',
+  link: '#222',
+  icon: '#222',
   tabUnderline: 'red',
   textPrimary: '#222',
   textMuted: 'gray',
-  headerBackground: 'blue',
+  headerBackground: 'fafafa',
   mainContainerBackground: 'fafafa'
 };

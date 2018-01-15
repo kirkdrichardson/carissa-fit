@@ -48,7 +48,6 @@ class RoutingStore {
 });
 
 returnCurrentPageComponent = action((pageKey) => {
-  console.log(pageKey)
   if ((typeof pageKey === 'string') &&
       (Object.prototype.hasOwnProperty.call(PAGEMAP, pageKey))) {
     // set observable currentPageKey to requested page

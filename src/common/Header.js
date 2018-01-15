@@ -16,7 +16,7 @@ const Header = observer(({ routingStore }) =>
     <HeaderWeb>
       <LogoContainer>
         <Logo>
-          <img src='https://picsum.photos/170/46' alt='logo' />
+          <img src='https://picsum.photos/170/46?image=292' alt='logo' />
         </Logo>
       </LogoContainer>
       <NavSection>

@@ -40,7 +40,7 @@ const Header = observer(({ routingStore }) =>
           [
             { type: 'INSTAGRAM', zmdiClass: 'zmdi-instagram', link: 'https://www.instagram.com/trainforhealth.carissa/' },
             { type: 'FACEBOOK', zmdiClass: 'zmdi-facebook', link: 'https://www.facebook.com/carissa.richardson.750' },
-            { type: 'MAIL', zmdiClass: 'zmdi-email', link: '#' }
+            { type: 'MAIL', zmdiClass: 'zmdi-email', link: 'mailto:bulkemail42@gmail.com' }
           ]
         }
         </IconLinkBar>
@@ -67,7 +67,6 @@ const HeaderWeb = styled.header`
 `;
 
 const LogoContainer = styled.div`
-border: 1px dashed red;
   ${style.cssSnippets.flexRow}
   flex: 1;
 `;
@@ -78,19 +77,21 @@ const Logo = styled.picture`
 `;
 
 const NavSection = styled.div`
-border: 1px dashed red;
   ${style.cssSnippets.flexRow}
   flex: 3;
+  font-family: 'Comfortaa', cursive;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 2px;
 `;
 
 const TabBarContainer = styled.div`
-  max-width: 620px;
-  min-width: 548px;
+  max-width: 500px;
+  min-width: 500px;
   width: 100%;
 `;
 
 const SocialLinkSection = styled.div`
-border: 1px dashed red;
   flex: 1;
 `;
 

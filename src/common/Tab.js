@@ -8,7 +8,7 @@ import color from './../global/Color';
 const Tab = ({ children, isActive, returnCurrentPageComponent, pageKey }) => // eslint-disable-line object-curly-newline, max-len
   (
     <TabContainer id={pageKey} onClick={e => returnCurrentPageComponent(e.currentTarget.id)}>
-      { children }
+      <Text isActive={isActive}>{ children }</Text>
       <TabUnderline isActive={isActive} />
     </TabContainer>
   );
@@ -16,6 +16,7 @@ const Tab = ({ children, isActive, returnCurrentPageComponent, pageKey }) => // 
 const TabContainer = styled.div`
   position: relative;
   padding 6px 0;
+  cursor: pointer;
 `;
 
 const TabUnderline = styled.div`
@@ -24,10 +25,15 @@ const TabUnderline = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  width: 36px;
+  width: 26px;
   margin: 0 auto;
   border: 2px solid transparent;
   border-bottom-color: ${props => (props.isActive ? color.tabUnderline : 'transparent')};
+`;
+
+const Text = styled.p`
+  margin: 0;
+  color: ${props => (props.isActive ? color.blue : color.textPrimary)};
 `;
 
 Tab.propTypes = {

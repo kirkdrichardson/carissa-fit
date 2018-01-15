@@ -16,38 +16,42 @@ const PhotoBar = ({ photoArr }) => // eslint-disable-line object-curly-newline, 
     <PhotoBarContainer>
       {
         photoArr.map(srcString => (
-          <PhotoContainer key={srcString}>
+          <picture key={srcString}>
             <Image src={srcString} alt='action' />
-          </PhotoContainer>
+          </picture>
          ))
       }
     </PhotoBarContainer>
   );
 
 const PhotoBarContainer = styled.div`
-border: 1px dashed coral;
   ${style.cssSnippets.flexRow}
   box-sizing: border-box;
   width: 100%;
-`;
-
-const importedImageWidth = 900;
-const aspectRatio = 6 / 5;
-
-const PhotoContainer = styled.picture`
-border: 1px dashed green;
-  position: relative;
-  display: flex;
-  flex: 1 1 auto;
-  width: ${importedImageWidth}px;
-  height: ${Math.round(importedImageWidth / aspectRatio)}px;
-  margin-right: 4px;
-  :nth-last-child(1) {
-    margin-right: 0;
+  picture {
+    margin-right: 4px;
+    :nth-last-child(1) {
+      margin-right: 0;
+    }
   }
-  overflow: hidden;
 `;
 
+// const importedImageWidth = 900;
+// const aspectRatio = 6 / 5;
+//
+// const PhotoContainer = styled.picture`
+// border: 1px dashed green;
+//   position: relative;
+//   display: flex;
+//   flex: 1 1 auto;
+//   width: ${importedImageWidth}px;
+//   height: ${Math.round(importedImageWidth / aspectRatio)}px;
+//   margin-right: 4px;
+//   :nth-last-child(1) {
+//     margin-right: 0;
+//   }
+//   overflow: hidden;
+// `;
 
 const Image = styled.img`
   flex: 1 1 auto;

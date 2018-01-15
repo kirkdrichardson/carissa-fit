@@ -15,7 +15,6 @@ const Home = () =>
   );
 
 const Container = styled.div`
-border: 2px dashed green;
   width: 100%;
   height: 100%;
   box-sizing: border-box;

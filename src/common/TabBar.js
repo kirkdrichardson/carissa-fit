@@ -32,4 +32,5 @@ const TabContainer = styled.nav`
   flex-flow: row nowrap;
   justify-content: space-between;
 `;
+
 export default TabBar;

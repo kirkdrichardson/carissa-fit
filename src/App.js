@@ -10,21 +10,26 @@ import color from './global/Color';
 
 const App = observer(({ routingStore }) =>
   (
-    <MainContainer>
+    <ReactContainer id='react-container'>
       <Header routingStore={routingStore} />
-      {
-        routingStore.returnCurrentPageComponent(routingStore.currentPageKey)
-      }
-    </MainContainer>
+      <MainContainer>
+        {
+          routingStore.returnCurrentPageComponent(routingStore.currentPageKey)
+        }
+      </MainContainer>
+    </ReactContainer>
   ));
 
 App.propTypes = {
   routingStore: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
-const MainContainer = styled.main`
-border: 1px dashed coral;
+const ReactContainer = styled.div`
+  height: 100%;
+  width: 100%;
+  `;
 
+const MainContainer = styled.main`
   background-color: ${color.mainContainerBackground};
   height: calc(100% - ${style.headerHeight});
   width: 100%;

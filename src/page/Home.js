@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { PageContainer, MainContentWrapper } from './../common/StyledComponentGlobal';
 import PhotoBar from './../common/PhotoBar';
 
 // import style from './../global/Style';
@@ -8,16 +9,12 @@ import PhotoBar from './../common/PhotoBar';
 
 const Home = () =>
   (
-    <Container>
+    <PageContainer>
       <PhotoBar />
-      home
-    </Container>
+      <MainContentWrapper>
+        home
+      </MainContentWrapper>
+    </PageContainer>
   );
-
-const Container = styled.div`
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-`;
 
 export default Home;

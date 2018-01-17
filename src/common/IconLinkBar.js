@@ -20,7 +20,7 @@ const IconLinkBar = ({ children }) =>
   );
 
 const IconLinkBarContainer = styled.div`
-  
+
 `;
 
 const IconGroup = styled.div`

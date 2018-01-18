@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import PropTypes from 'prop-types';
 
 import style from './../global/Style';
@@ -24,8 +24,14 @@ const PhotoBar = ({ photoArr }) => // eslint-disable-line object-curly-newline, 
     </PhotoBarContainer>
   );
 
+const slideDown = keyframes`
+  from { top: -500px; }
+  to { top: 60px; }
+  `;
+
 const PhotoBarContainer = styled.div`
   ${style.cssSnippets.flexRow}
+  position: absolute;
   box-sizing: border-box;
   width: 100%;
   picture {
@@ -34,6 +40,7 @@ const PhotoBarContainer = styled.div`
       margin-right: 0;
     }
   }
+  animation: ${slideDown} 1s linear;
 `;
 
 // const importedImageWidth = 900;
@@ -54,7 +61,7 @@ const PhotoBarContainer = styled.div`
 // `;
 
 const Image = styled.img`
-  flex: 1 1 auto;
+
 `;
 
 PhotoBar.propTypes = {

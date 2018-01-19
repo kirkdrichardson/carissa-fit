@@ -24,15 +24,14 @@ const PhotoBar = ({ photoArr }) => // eslint-disable-line object-curly-newline, 
     </PhotoBarContainer>
   );
 
-const slideDown = keyframes`
-  from { top: -500px; }
-  to { top: 60px; }
-  `;
+// const slideDown = keyframes`
+//   from { top: -500px; }
+//   to { top: 60px; }
+//   `;
 
 const PhotoBarContainer = styled.div`
   ${style.cssSnippets.flexRow}
-  position: absolute;
-  box-sizing: border-box;
+    box-sizing: border-box;
   width: 100%;
   picture {
     margin-right: 4px;
@@ -40,7 +39,6 @@ const PhotoBarContainer = styled.div`
       margin-right: 0;
     }
   }
-  animation: ${slideDown} 1s linear;
 `;
 
 // const importedImageWidth = 900;

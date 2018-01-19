@@ -10,5 +10,6 @@ module.exports = {
   blue: '#67AECA',
   amethyst: '#675682',
   jewel: '#5f0f4e',
-  rose: '#E52A6F'
+  rose: '#E52A6F',
+  white: '#fafafa'
 };

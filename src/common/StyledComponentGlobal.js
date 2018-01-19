@@ -4,6 +4,9 @@ import style from './../global/Style';
 
 /* eslint-disable import/prefer-default-export */
 
+export const MainContentMaxWidth = 1200;
+export const MainContentMinWidth = 360;
+
 export const PageContainer = styled.div`
   width: 100%;
   height: 100%;
@@ -14,8 +17,8 @@ export const PageContainer = styled.div`
 
 export const MainContentWrapper = styled.div`
 border 1px dashed coral;
-  max-width: 1200px;
-  min-width: 360px;
+  max-width: ${MainContentMaxWidth}px;
+  min-width: ${MainContentMinWidth}px;
   box-sizing: border-box;
   width: 100%;
   ${style.cssSnippets.flexColumn};

@@ -9,10 +9,6 @@ import style from './global/Style';
 import color from './global/Color';
 
 const App = observer(class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { width: 0, height: 0 };
-  }
   /* eslint-disable no-undef */
   componentDidMount() {
     this.updateWindowDimensions();
@@ -23,8 +19,10 @@ const App = observer(class App extends React.Component {
     window.removeEventListener('resize', this.updateWindowDimensions);
   }
 
-  updateWindowDimensions() {
-    this.setState({ width: window.innerWidth, height: window.innerHeight });
+    // https://github.com/eslint/eslint/issues/4683
+  updateWindowDimensions = () => {
+    this.props.routingStore.handleStateChange('windowHeight', window.innerHeight);
+    this.props.routingStore.handleStateChange('windowWidth', window.innerWidth);
   }
   /* eslint-enable no-undef */
 

@@ -40,6 +40,8 @@ class RoutingStore {
   constructor() {
     extendObservable(this, {
       currentPageKey: 'HOME',
+      windowHeight: 0,
+      windowWidth: 0,
       handleStateChange: action((property, value) => {
         this[property] = value;
       }),
@@ -60,5 +62,5 @@ class RoutingStore {
   }
 }
 
-
-export default RoutingStore;
+const routingStore = new RoutingStore();
+export default routingStore;

@@ -8,17 +8,40 @@ import Header from './common/Header';
 import style from './global/Style';
 import color from './global/Color';
 
-const App = observer(({ routingStore }) =>
-  (
-    <ReactContainer id='react-container'>
-      <Header routingStore={routingStore} />
-      <MainContainer>
-        {
-          routingStore.returnCurrentPageComponent(routingStore.currentPageKey)
-        }
-      </MainContainer>
-    </ReactContainer>
-  ));
+const App = observer(class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { width: 0, height: 0 };
+  }
+  /* eslint-disable no-undef */
+  componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions() {
+    this.setState({ width: window.innerWidth, height: window.innerHeight });
+  }
+  /* eslint-enable no-undef */
+
+  render() {
+    const { routingStore } = this.props; // eslint-disable-line react/prop-types
+    return (
+      <ReactContainer id='react-container'>
+        <Header routingStore={routingStore} />
+        <MainContainer>
+          {
+            routingStore.returnCurrentPageComponent(routingStore.currentPageKey)
+          }
+        </MainContainer>
+      </ReactContainer>
+    );
+  }
+});
 
 App.propTypes = {
   routingStore: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types

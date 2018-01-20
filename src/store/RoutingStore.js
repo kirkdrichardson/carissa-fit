@@ -40,28 +40,24 @@ class RoutingStore {
   constructor() {
     extendObservable(this, {
       currentPageKey: 'HOME',
+      handleStateChange: action((property, value) => {
+        this[property] = value;
+      }),
+      returnCurrentPageComponent: action((pageKey) => {
+        if ((typeof pageKey === 'string') &&
+            (Object.prototype.hasOwnProperty.call(PAGEMAP, pageKey))) {
+          // set observable currentPageKey to requested page
+          this.currentPageKey = pageKey;
+          // return page component if component property is defined
+          if (typeof PAGEMAP[pageKey].component === 'object') {
+            return PAGEMAP[pageKey].component;
+          }
+          throw new Error(`PAGEMAP[${pageKey}] != object`);
+        }
+        throw new Error(!(Object.prototype.hasOwnProperty.call(PAGEMAP, pageKey)) ? 'pageKey not found in PAGEMAP' : 'pageKey arg != currentPageKey');
+      })
     });
   }
-
-  handleStateChange = action((property, value) => {
-  this[property] = value;
-});
-
-returnCurrentPageComponent = action((pageKey) => {
-  if ((typeof pageKey === 'string') &&
-      (Object.prototype.hasOwnProperty.call(PAGEMAP, pageKey))) {
-    // set observable currentPageKey to requested page
-    this.currentPageKey = pageKey;
-    // return page component if component property is defined
-    if (typeof PAGEMAP[pageKey].component === 'object') {
-      return PAGEMAP[pageKey].component;
-    }
-    throw new Error(`PAGEMAP[${pageKey}] != object`);
-  }
-  throw new Error(!(Object.prototype.hasOwnProperty.call(PAGEMAP, pageKey)) ? 'pageKey not found in PAGEMAP' : 'pageKey arg != currentPageKey');
-})
-
-
 }
 
 

@@ -46,7 +46,7 @@ border: 1px solid red;
   box-sizing: border-box;
   width: 100%;
   color: ${color.white};
-  background-color: ${color.blue};
+  background-color: ${color.roseLt};
   padding: 20px;
   margin: 20px 0;
 `;

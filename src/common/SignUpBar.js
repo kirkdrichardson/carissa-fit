@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { keyframes, withComponent } from 'styled-components';
 import PropTypes from 'prop-types';
 
+import strings from './../global/Strings';
 import style from './../global/Style';
 import variable from './../global/Variable';
 import { getStr } from './../util/General';
@@ -20,11 +21,15 @@ const SignUpBar = ({ photoArr }) => // eslint-disable-line object-curly-newline,
         <img src='https://picsum.photos/200/300' alt='article cover' />
       </picture>
       <ContentColumn>
-        <p>{ getStr(40) }</p>
+        <p>{ getStr(35) }</p>
         <InputRow>
           <Input placeholder='Name' type='text' />
           <Input placeholder='Email' type='text' />
-          <Submit>Keep me up-to-date!</Submit>
+          <Submit
+            onClick={() => console.error('SignUpBar submission not configured')}
+          >
+          { strings.signUpBar.submitButton }
+          </Submit>
         </InputRow>
       </ContentColumn>
     </SignUpBarContainer>
@@ -41,7 +46,7 @@ border: 1px solid red;
   box-sizing: border-box;
   width: 100%;
   color: ${color.white};
-  background-color: ${color.amethyst};
+  background-color: ${color.blue};
   padding: 20px;
   margin: 20px 0;
 `;
@@ -51,6 +56,7 @@ const ContentColumn = styled.div`
   justify-content: flex-start;
   align-self: flex-start;
   padding: 0 20px;
+  font-weight: bold;
   p {
     margin: 0;
   }
@@ -59,6 +65,7 @@ const ContentColumn = styled.div`
 const InputRow = styled.form`
 border: 1px solid white;
   ${style.cssSnippets.flexRow}
+  flex-wrap: wrap;
   width: 100%;
   justify-content: space-around;
   padding: 20px 0;
@@ -69,16 +76,15 @@ border: 1px solid white;
 // TODO - add global input styles
 
 const Input = styled.input`
-  flex: 0 1 ${Math.round(MainContentMaxWidth / 3)}px;
+  ${style.input};
+  flex: 0 1 ${Math.round(MainContentMaxWidth / 4)}px;
   margin-right: 20px;
-  height: 40px;
-  border-radius: 6px;
 `;
 
 const Submit = styled.button`
-  flex: 0 1 ${Math.round(MainContentMaxWidth / 3)}px;
-  height: 40px;
-  border-radius;
+  ${style.btn}
+  ${style.btnPrimary}
+  flex: 0 1 ${Math.round(MainContentMaxWidth / 4)}px;
 `;
 
 SignUpBar.propTypes = {

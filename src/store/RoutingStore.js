@@ -1,6 +1,8 @@
 import React from 'react';
 import { extendObservable, action } from 'mobx';
 
+import variable from './../global/Variable';
+
 import Home from './../page/Home';
 import Blog from './../page/Blog';
 import Services from './../page/Services';
@@ -42,6 +44,10 @@ class RoutingStore {
       currentPageKey: 'HOME',
       windowHeight: 0,
       windowWidth: 0,
+      get isTablet() {
+        return Boolean(this.windowWidth < variable.mediaBreakPoints.tablet);
+      },
+
       handleStateChange: action((property, value) => {
         this[property] = value;
       }),

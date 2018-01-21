@@ -123,12 +123,16 @@ const SocialLinkSection = styled.div`
 const DropdownContainer = styled.div`
   font-size: 36px;
   margin-right: 20px;
+  i {
+    color: ${Color.component.menuIcon};
+  }
+
   ul {
     top: 50px;
     right: 0;
     font-size: 26px;
-    background: #cfcfcf;
-    color: #fafafa;
+    background-color: ${Color.component.menuBackground};
+    color: ${Color.component.textPrimary};
     border-radius: 6px;
     box-shadow: ${style.boxShadow};
 
@@ -137,7 +141,7 @@ const DropdownContainer = styled.div`
       width: 100%;
       padding: 12px 26px;
       :hover {
-        background-color: #b6b6b6;
+        background-color: ${Color.component.menuHover};
       }
     }
   }

@@ -48,6 +48,7 @@ App.propTypes = {
 const ReactContainer = styled.div`
   height: 100%;
   width: 100%;
+  box-sizing: border-box;
   `;
 
 const MainContainer = styled.main`

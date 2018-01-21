@@ -16,6 +16,9 @@ module.exports = {
   component: {
     link: '#222',
     icon: '#C0B283',
+    menuIcon: '#C0B283',
+    menuBackground: '#DCD0C0',
+    menuHover: '#C0B283',
     tabUnderline: '#C0B283',
     activeTab: '#C0B283',
     textPrimary: '#373737',

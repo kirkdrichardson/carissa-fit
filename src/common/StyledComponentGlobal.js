@@ -9,7 +9,7 @@ export const MainContentMinWidth = 360;
 
 export const PageContainer = styled.div`
   width: 100%;
-  height: 100%;
+  overflow: scroll;
   box-sizing: border-box;
   ${style.cssSnippets.flexColumn};
   justify-content: flex-start;
@@ -22,6 +22,7 @@ border 1px dashed coral;
   min-width: ${MainContentMinWidth}px;
   box-sizing: border-box;
   width: 100%;
+  height: 100%;
   ${style.cssSnippets.flexColumn}
   flex-wrap: nowrap;
 `;

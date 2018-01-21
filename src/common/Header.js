@@ -8,7 +8,7 @@ import IconLinkBar from './IconLinkBar';
 import Dropdown from './Dropdown';
 
 import style from './../global/Style';
-import color from './../global/Color';
+import Color from './../global/Color';
 // import variable from './../global/Variable';
 
 
@@ -61,7 +61,7 @@ const Header = observer(({ routingStore }) => {
     <HeaderWeb isTablet={routingStore.isTablet}>
       <LogoContainer isTablet={routingStore.isTablet}>
         <Logo>
-          <img src='https://picsum.photos/170/46?image=292' alt='logo' />
+          <img src='https://picsum.photos/170/46?image=65' alt='logo' />
         </Logo>
       </LogoContainer>
       { Navigation }
@@ -76,7 +76,7 @@ Header.propTypes = {
 };
 
 const HeaderWeb = styled.header`
-  background-color: ${color.headerBackground};
+  background-color: ${Color.component.headerBackground};
   height: ${style.headerHeight};
   position: fixed;
   top: 0;
@@ -127,15 +127,17 @@ const DropdownContainer = styled.div`
     top: 50px;
     right: 0;
     font-size: 26px;
-    background: gray;
+    background: #cfcfcf;
+    color: #fafafa;
     border-radius: 6px;
+    box-shadow: ${style.boxShadow};
 
     li {
       box-sizing: border-box;
       width: 100%;
       padding: 12px 26px;
       :hover {
-        background-color: red;
+        background-color: #b6b6b6;
       }
     }
   }

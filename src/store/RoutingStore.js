@@ -44,8 +44,12 @@ class RoutingStore {
       currentPageKey: 'HOME',
       windowHeight: 0,
       windowWidth: 0,
+
       get isTablet() {
         return Boolean(this.windowWidth < variable.mediaBreakPoints.tablet);
+      },
+      get isMobileLarge() {
+        return Boolean(this.windowWidth < variable.mediaBreakPoints.mobileLarge);
       },
 
       handleStateChange: action((property, value) => {

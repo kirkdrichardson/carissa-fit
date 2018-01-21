@@ -6,7 +6,7 @@ import { observer } from 'mobx-react';
 import Header from './common/Header';
 
 import style from './global/Style';
-import color from './global/Color';
+import Color from './global/Color';
 
 const App = observer(class App extends React.Component {
   /* eslint-disable no-undef */
@@ -51,7 +51,7 @@ const ReactContainer = styled.div`
   `;
 
 const MainContainer = styled.main`
-  background-color: ${color.mainContainerBackground};
+  background-color: ${Color.component.mainContainerBackground};
   height: calc(100% - ${style.headerHeight});
   width: 100%;
   margin-top: ${style.headerHeight};

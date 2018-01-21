@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 // import style from './../global/Style';
-import color from './../global/Color';
+import Color from './../global/Color';
 
 const Tab = ({ children, isActive, returnCurrentPageComponent, pageKey }) => // eslint-disable-line object-curly-newline, max-len
   (
@@ -28,12 +28,12 @@ const TabUnderline = styled.div`
   width: 26px;
   margin: 0 auto;
   border: 2px solid transparent;
-  border-bottom-color: ${props => (props.isActive ? color.tabUnderline : 'transparent')};
+  border-bottom-color: ${props => (props.isActive ? Color.component.tabUnderline : 'transparent')};
 `;
 
 const Text = styled.p`
   margin: 0;
-  color: ${props => (props.isActive ? color.blue : color.textPrimary)};
+  color: ${props => (props.isActive ? Color.component.activeTab : Color.component.textPrimary)};
 `;
 
 Tab.propTypes = {

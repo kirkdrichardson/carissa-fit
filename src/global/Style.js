@@ -1,5 +1,6 @@
 module.exports = {
   headerHeight: '60px',
+  boxShadow: '5px 5px 10px grey',
   font: {
     header: "font-family: 'Rubik', sans-serif",
     primary: "font-family: 'Roboto', sans-serif"
@@ -30,7 +31,10 @@ module.exports = {
         font-size: 18px;
         font-weight: bold;
   `,
-  btnPrimary: `color: #fafafa;
-               background-color: #5f0f4e;
+  btnPrimary: `color: #373737;
+               background-color: #C0B283;
+  `,
+  btnSecondary: `color: #373737;
+                 background-color: #COB283;
   `
 };

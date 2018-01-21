@@ -1,5 +1,5 @@
 module.exports = {
   signUpBar: {
-    submitButton: 'Keep me up-to-date!'
+    submitButton: 'Sign me up!'
   }
 };

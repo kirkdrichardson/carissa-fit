@@ -16,7 +16,7 @@ const Home = observer(() =>
     <PageContainer>
       <PhotoBar />
       <MainContentWrapper>
-        <SignUpBar />
+        <SignUpBar isTablet={routingStore.isTablet} />
         <p>{ `window height is ${routingStore.windowHeight}`}</p>
         <p>{ `window width is ${routingStore.windowWidth}`}</p>
       </MainContentWrapper>

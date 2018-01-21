@@ -1,12 +1,13 @@
 import React from 'react';
-import styled, { keyframes, withComponent } from 'styled-components';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { observer } from 'mobx-react';
 
 import strings from './../global/Strings';
 import style from './../global/Style';
-import variable from './../global/Variable';
+// import variable from './../global/Variable';
 import { getStr } from './../util/General';
-import color from './../global/Color';
+import Color from './../global/Color';
 import { MainContentMaxWidth } from './../common/StyledComponentGlobal';
 
 /**
@@ -14,26 +15,65 @@ takes arr of strings as photoArr prop
 if photoArr is undefined, ./../global/Variable.SignUpBarSrcArr is used
 */
 
-const SignUpBar = ({ photoArr }) => // eslint-disable-line object-curly-newline, max-len
-  (
-    <SignUpBarContainer>
-      <picture>
-        <img src='https://picsum.photos/200/300' alt='article cover' />
-      </picture>
-      <ContentColumn>
-        <p>{ getStr(35) }</p>
-        <InputRow>
-          <Input placeholder='Name' type='text' />
-          <Input placeholder='Email' type='text' />
-          <Submit
-            onClick={() => console.error('SignUpBar submission not configured')}
-          >
-          { strings.signUpBar.submitButton }
-          </Submit>
-        </InputRow>
-      </ContentColumn>
+const SignUpBar = observer(({ isTablet, isMobileLarge }) => {
+  const handleSubmission = (e) => {
+    e.preventDefault();
+    throw new Error('SignUpBar, submission not configured');
+  };
+  // break JSX up into variables for easier window width arrangement
+  const picture = (
+    <picture>
+      <img src='https://picsum.photos/200/300' alt='article cover' />
+    </picture>
+  );
+
+  const text = (
+    <p>{ getStr(30) }</p>
+  );
+
+  const inputRow = (
+    <InputRow isTablet={isTablet} isMobileLarge={isMobileLarge}>
+      <input placeholder='Name' type='text' />
+      <input placeholder='Email' type='text' />
+      <button
+        onClick={handleSubmission}
+      >
+        { strings.signUpBar.submitButton }
+      </button>
+    </InputRow>
+  );
+
+  let contentArrangement = null;
+
+  if (isTablet) {
+    contentArrangement = (
+      <Column>
+        <Row>
+          { picture }
+          { text }
+        </Row>
+        { inputRow }
+      </Column>
+    );
+  } else {
+    contentArrangement = (
+      <Row>
+        { picture }
+        <Column>
+          { text }
+          { inputRow }
+        </Column>
+      </Row>
+    );
+  }
+
+
+  return (
+    <SignUpBarContainer isTablet={isTablet}>
+      { contentArrangement }
     </SignUpBarContainer>
   );
+});
 
 // const slideDown = keyframes`
 //   from { top: -500px; }
@@ -41,18 +81,30 @@ const SignUpBar = ({ photoArr }) => // eslint-disable-line object-curly-newline,
 //   `;
 
 const SignUpBarContainer = styled.div`
-border: 1px solid red;
   ${style.cssSnippets.flexRow}
   box-sizing: border-box;
   width: 100%;
-  color: ${color.white};
-  background-color: ${color.roseLt};
+  color: ${Color.color.textPrimary};
+  background-color: ${Color.component.signUpBarBackground};
   padding: 20px;
   margin: 20px 0;
+  font-size: 20px;
+
+  img {
+    min-width: 100px;
+  }
+
+  p {
+    padding: ${props => (props.isTablet ? '0 30px' : '0px')};
+    font-size: ${props => (props.isMobileLarge ? 12 : 18)}px;
+  }
 `;
 
-const ContentColumn = styled.div`
+const Column = styled.div`
   ${style.cssSnippets.flexColumn}
+  ${props => (props.isTablet ? style.cssSnippets.flexRow : style.cssSnippets.flexColumn)}
+  flex-wrap: nowrap;
+
   justify-content: flex-start;
   align-self: flex-start;
   padding: 0 20px;
@@ -62,35 +114,48 @@ const ContentColumn = styled.div`
   }
 `;
 
+const Row = styled.div`
+  ${style.cssSnippets.flexRow}
+`;
+
 const InputRow = styled.form`
 border: 1px solid white;
-  ${style.cssSnippets.flexRow}
-  flex-wrap: wrap;
+
+  ${props => (props.isTablet ? style.cssSnippets.flexColumn : style.cssSnippets.flexRow)}
+  flex-wrap: nowrap;
+
   width: 100%;
   justify-content: space-around;
   padding: 20px 0;
   box-sizing: border-box;
-`;
 
+  input, button {
+    flex: 1;
+    max-width: ${props => (props.isTablet ? '' : Math.round(MainContentMaxWidth / 4))}px;
+    min-width: ${props => (props.isTablet ? 300 : 250)}px;
+    width: 100%;
+    margin-bottom: ${props => (props.isTablet ? 12 : 0)}px;
+  }
 
-// TODO - add global input styles
+  input {
+    ${style.input};
+    margin-right: ${props => (props.isTablet ? 0 : 20)}px;
+  }
 
-const Input = styled.input`
-  ${style.input};
-  flex: 0 1 ${Math.round(MainContentMaxWidth / 4)}px;
-  margin-right: 20px;
-`;
-
-const Submit = styled.button`
-  ${style.btn}
-  ${style.btnPrimary}
-  flex: 0 1 ${Math.round(MainContentMaxWidth / 4)}px;
+    button {
+      ${style.btn}
+      ${style.btnPrimary}
+    }
 `;
 
 SignUpBar.propTypes = {
+  isTablet: PropTypes.bool,
+  isMobile: PropTypes.bool
 };
 
 SignUpBar.defaultProps = {
+  isTablet: false,
+  isMobile: false
 };
 
 export default SignUpBar;

@@ -13,6 +13,7 @@ export const PageContainer = styled.div`
   box-sizing: border-box;
   ${style.cssSnippets.flexColumn};
   justify-content: flex-start;
+  flex-wrap: nowrap;
 `;
 
 export const MainContentWrapper = styled.div`
@@ -21,5 +22,6 @@ border 1px dashed coral;
   min-width: ${MainContentMinWidth}px;
   box-sizing: border-box;
   width: 100%;
-  ${style.cssSnippets.flexColumn};
+  ${style.cssSnippets.flexColumn}
+  flex-wrap: nowrap;
 `;

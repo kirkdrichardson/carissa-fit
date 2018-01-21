@@ -9,19 +9,19 @@ import Dropdown from './Dropdown';
 
 import style from './../global/Style';
 import color from './../global/Color';
-import variable from './../global/Variable';
-
-const NavigationData = [
-  { key: 'HOME', title: 'HOME' },
-  { key: 'BLOG', title: 'BLOG' },
-  { key: 'SERVICES', title: 'SERVICES' },
-  { key: 'TESTIMONIALS', title: 'TESTIMONIALS' },
-  { key: 'CONTACT', title: 'CONTACT' }
-];
+// import variable from './../global/Variable';
 
 
 // TODO - add conditional logic to return a web header or mobile header depending on breakpoint prop
 const Header = observer(({ routingStore }) => {
+  const NavigationData = [
+    { key: 'HOME', title: 'HOME', onClick: e => routingStore.returnCurrentPageComponent(e.currentTarget.id) },
+    { key: 'BLOG', title: 'BLOG', onClick: e => routingStore.returnCurrentPageComponent(e.currentTarget.id) },
+    { key: 'SERVICES', title: 'SERVICES', onClick: e => routingStore.returnCurrentPageComponent(e.currentTarget.id) },
+    { key: 'TESTIMONIALS', title: 'TESTIMONIALS', onClick: e => routingStore.returnCurrentPageComponent(e.currentTarget.id) },
+    { key: 'CONTACT', title: 'CONTACT', onClick: e => routingStore.returnCurrentPageComponent(e.currentTarget.id) }
+  ];
+
   let Navigation = null;
   let SocialLinks = null;
 

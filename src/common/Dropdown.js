@@ -20,10 +20,22 @@ const Dropdown = observer(class Dropdown extends React.Component {
     const { children, iconClass } = this.props;
     return (
       <DropdownContainer>
-        <Icon className={`zmdi ${iconClass}`} onClick={this.toggleOpenState} />
-        <Options isOpen={this.state.isOpen}>
+        <i className={`zmdi ${iconClass}`} onClick={this.toggleOpenState} />
+        <Options
+          isOpen={this.state.isOpen}
+          onClick={this.toggleOpenState}
+          onMouseLeave={this.toggleOpenState}
+        >
           {
-            children.map(listItem => <Option key={listItem.key}>{ listItem.title }</Option>)
+            children.map(listItem =>
+              <li
+                key={listItem.key}
+                id={listItem.key}
+                onClick={listItem.onClick}
+              >
+                { listItem.title }
+              </li>
+            )
           }
         </Options>
       </DropdownContainer>
@@ -35,10 +47,6 @@ const DropdownContainer = styled.nav`
   position: relative;
 `;
 
-const Icon = styled.i`
-  color: black;
-`;
-
 const Options = styled.ul`
   ${style.cssSnippets.flexColumn}
   margin: 0;
@@ -47,10 +55,23 @@ const Options = styled.ul`
   position: absolute;
   display: ${props => (props.isOpen ? 'flex' : 'none')};
   list-style-type: none;
+  li {
+    cursor: pointer;
+  }
 `;
 
-const Option = styled.li`
-`;
+// const Triangle = styled.div`
+//   position: absolute;
+//   top: -20px;
+//   right: 20px;
+//   height: 20px;
+//   width: 20px;
+//   width: 0;
+//   height: 0;
+//   border-left: 26px solid transparent;
+//   border-right: 26px solid transparent;
+//   border-bottom: 22px solid #857c7c;
+// `;
 
 Dropdown.propTypes = {
   children: PropTypes.arrayOf(PropTypes.object).isRequired,

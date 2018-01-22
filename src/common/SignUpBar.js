@@ -32,7 +32,7 @@ const SignUpBar = observer(({ isTablet, isMobileLarge }) => {
   );
 
   const inputRow = (
-    <InputRow isTablet={isTablet} isMobileLarge={isMobileLarge}>
+    <InputRow isTablet={isTablet}>
       <input placeholder='Name' type='text' />
       <input placeholder='Email' type='text' />
       <button
@@ -69,7 +69,7 @@ const SignUpBar = observer(({ isTablet, isMobileLarge }) => {
 
 
   return (
-    <SignUpBarContainer isTablet={isTablet}>
+    <SignUpBarContainer isTablet={isTablet} isMobileLarge={isMobileLarge}>
       { contentArrangement }
     </SignUpBarContainer>
   );
@@ -98,7 +98,8 @@ const SignUpBarContainer = styled.div`
 
   p {
     padding: ${props => (props.isTablet ? '0 30px' : '0px')};
-    font-size: ${props => (props.isMobileLarge ? 12 : 18)}px;
+    font-size: ${props => (props.isMobileLarge ? 14 : 18)}px;
+    line-height: ${props => (props.isMobileLarge ? 16 : 22)}px;
   }
 `;
 
@@ -150,12 +151,12 @@ const InputRow = styled.form`
 
 SignUpBar.propTypes = {
   isTablet: PropTypes.bool,
-  isMobile: PropTypes.bool
+  isMobileLarge: PropTypes.bool
 };
 
 SignUpBar.defaultProps = {
   isTablet: false,
-  isMobile: false
+  isMobileLarge: false
 };
 
 export default SignUpBar;

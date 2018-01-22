@@ -1,6 +1,7 @@
 module.exports = {
   headerHeight: '60px',
   boxShadow: '5px 5px 10px grey',
+  boxShadowLeft: '-5px 5px 10px grey',
   font: {
     header: "font-family: 'Rubik', sans-serif",
     primary: "font-family: 'Roboto', sans-serif"

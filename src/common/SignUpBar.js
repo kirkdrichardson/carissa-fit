@@ -92,6 +92,8 @@ const SignUpBarContainer = styled.div`
 
   img {
     min-width: 100px;
+    border-radius: 6px;
+    box-shadow: ${style.boxShadowLeft};
   }
 
   p {
@@ -104,11 +106,11 @@ const Column = styled.div`
   ${style.cssSnippets.flexColumn}
   ${props => (props.isTablet ? style.cssSnippets.flexRow : style.cssSnippets.flexColumn)}
   flex-wrap: nowrap;
-
   justify-content: flex-start;
   align-self: flex-start;
   padding: 0 20px;
   font-weight: bold;
+
   p {
     margin: 0;
   }
@@ -119,8 +121,6 @@ const Row = styled.div`
 `;
 
 const InputRow = styled.form`
-border: 1px solid white;
-
   ${props => (props.isTablet ? style.cssSnippets.flexColumn : style.cssSnippets.flexRow)}
   flex-wrap: nowrap;
 

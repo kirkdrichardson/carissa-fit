@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-import RoutingStore from './store/RoutingStore';
+import routingStore from './store/RoutingStore';
 
-ReactDOM.render(<App routingStore={new RoutingStore()} />, document.getElementById('root'));
+ReactDOM.render(<App routingStore={routingStore} />, document.getElementById('root'));
 registerServiceWorker();

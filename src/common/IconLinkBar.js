@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import style from './../global/Style';
-import color from './../global/Color';
+import Color from './../global/Color';
 
 const IconLinkBar = ({ children }) =>
   (
@@ -32,9 +32,9 @@ const IconGroup = styled.div`
 
 const Link = styled.a`
   text-decoration: none;
-  color: ${color.icon};
+  color: ${Color.component.icon};
   :visited {
-    color: ${color.icon};
+    color: ${Color.component.icon};
   }
 `;
 

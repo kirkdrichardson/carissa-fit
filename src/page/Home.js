@@ -1,5 +1,5 @@
 import React from 'react';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 import { observer } from 'mobx-react';
 
 import { PageContainer, MainContentWrapper } from './../common/StyledComponentGlobal';
@@ -8,20 +8,49 @@ import SignUpBar from './../common/SignUpBar';
 
 import routingStore from './../store/RoutingStore';
 
-// import style from './../global/Style';
-// import color from './../global/Color';
+import style from './../global/Style';
+import Color from './../global/Color';
+import s from './../global/Strings';
+
+// <p>{ `window height is ${routingStore.windowHeight}`}</p>
+// <p>{ `window width is ${routingStore.windowWidth}`}</p>
 
 const Home = observer(() =>
   (
     <PageContainer>
       <PhotoBar />
       <MainContentWrapper>
-        <SignUpBar isTablet={routingStore.isTablet} />
-        <p>{ `window height is ${routingStore.windowHeight}`}</p>
-        <p>{ `window width is ${routingStore.windowWidth}`}</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.im veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <SignUpBar isTablet={routingStore.isTablet} isMobileLarge={routingStore.isMobileLarge} />
+        <TextContainer>
+          <h1>{ s.home.mainContentHeader }</h1>
+          <p>{ s.home.bodyOne }</p>
+          <h4>{ s.home.secondaryHeader }</h4>
+          <p>{ s.home.bodyTwo }</p>
+          <h2>{ s.home.footerHeader }</h2>
+        </TextContainer>
+
+
       </MainContentWrapper>
     </PageContainer>
   ));
+
+const TextContainer = styled.div`
+  margin: 20px;
+  ${style.cssSnippets.flexColumn}
+  align-items: flex-start;
+  color: ${Color.component.textPrimary};
+
+  h1 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  p {
+    line-height: 26px;
+  }
+`;
 
 export default Home;

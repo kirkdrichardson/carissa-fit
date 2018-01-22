@@ -17,7 +17,6 @@ export const PageContainer = styled.div`
 `;
 
 export const MainContentWrapper = styled.div`
-border 1px dashed coral;
   max-width: ${MainContentMaxWidth}px;
   min-width: ${MainContentMinWidth}px;
   box-sizing: border-box;

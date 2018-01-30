@@ -1,6 +1,7 @@
 module.exports = {
   signUpBar: {
-    submitButton: 'Sign me up!'
+    submitButton: 'Sign me up!',
+    submitButton2: 'Let\'s do it!'
   },
   home: {
     mainContentHeader: 'Main Content HEADER here',

@@ -6,6 +6,8 @@ import { PageContainer, MainContentWrapper } from './../common/StyledComponentGl
 import PhotoBar from './../common/PhotoBar';
 import SignUpBar from './../common/SignUpBar';
 
+import { getStr } from './../util/General';
+
 import routingStore from './../store/RoutingStore';
 
 import style from './../global/Style';
@@ -20,7 +22,13 @@ const Home = observer(() =>
     <PageContainer>
       <PhotoBar />
       <MainContentWrapper>
-        <SignUpBar isTablet={routingStore.isTablet} isMobileLarge={routingStore.isMobileLarge} />
+        <SignUpBar
+          isTablet={routingStore.isTablet}
+          isMobileLarge={routingStore.isMobileLarge}
+          submitButtonText={s.signUpBar.submitButton}
+        >
+          { getStr(20) }
+        </SignUpBar>
         <TextContainer>
           <h1>{ s.home.mainContentHeader }</h1>
           <p>{ s.home.bodyOne }</p>
@@ -28,7 +36,14 @@ const Home = observer(() =>
           <p>{ s.home.bodyTwo }</p>
           <h2>{ s.home.footerHeader }</h2>
         </TextContainer>
-
+        <SignUpBar
+          isTablet={routingStore.isTablet}
+          isMobileLarge={routingStore.isMobileLarge}
+          submitButtonText={s.signUpBar.submitButton2}
+          backgroundColor={Color.color.rose}
+        >
+          { getStr(30) }
+        </SignUpBar>
 
       </MainContentWrapper>
     </PageContainer>

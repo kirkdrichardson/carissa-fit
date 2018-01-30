@@ -3,10 +3,9 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 
-import strings from './../global/Strings';
+// import strings from './../global/Strings';
 import style from './../global/Style';
 // import variable from './../global/Variable';
-import { getStr } from './../util/General';
 import Color from './../global/Color';
 import { MainContentMaxWidth } from './../common/StyledComponentGlobal';
 
@@ -15,7 +14,9 @@ takes arr of strings as photoArr prop
 if photoArr is undefined, ./../global/Variable.SignUpBarSrcArr is used
 */
 
-const SignUpBar = observer(({ isTablet, isMobileLarge }) => {
+const SignUpBar = observer(({
+  isTablet, isMobileLarge, submitButtonText, children, backgroundColor
+}) => {
   const handleSubmission = (e) => {
     e.preventDefault();
     throw new Error('SignUpBar, submission not configured');
@@ -28,7 +29,7 @@ const SignUpBar = observer(({ isTablet, isMobileLarge }) => {
   );
 
   const text = (
-    <p>{ getStr(30) }</p>
+    <p>{ children }</p>
   );
 
   const inputRow = (
@@ -38,7 +39,7 @@ const SignUpBar = observer(({ isTablet, isMobileLarge }) => {
       <button
         onClick={handleSubmission}
       >
-        { strings.signUpBar.submitButton }
+        { submitButtonText }
       </button>
     </InputRow>
   );
@@ -69,11 +70,29 @@ const SignUpBar = observer(({ isTablet, isMobileLarge }) => {
 
 
   return (
-    <SignUpBarContainer isTablet={isTablet} isMobileLarge={isMobileLarge}>
+    <SignUpBarContainer
+      isTablet={isTablet}
+      isMobileLarge={isMobileLarge}
+      backgroundColor={backgroundColor}
+    >
       { contentArrangement }
     </SignUpBarContainer>
   );
 });
+
+SignUpBar.propTypes = {
+  isTablet: PropTypes.bool,
+  isMobileLarge: PropTypes.bool,
+  submitButtonText: PropTypes.string,
+  children: PropTypes.string.isRequired
+};
+
+SignUpBar.defaultProps = {
+  isTablet: false,
+  isMobileLarge: false,
+  submitButtonText: 'Sign me up!'
+
+};
 
 // const slideDown = keyframes`
 //   from { top: -500px; }
@@ -85,7 +104,7 @@ const SignUpBarContainer = styled.div`
   box-sizing: border-box;
   width: 100%;
   color: ${Color.color.textPrimary};
-  background-color: ${Color.component.signUpBarBackground};
+  background-color: ${props => (props.backgroundColor ? props.backgroundColor : Color.component.signUpBarBackground)};
   padding: 20px;
   margin: 20px 0;
   font-size: 20px;
@@ -148,15 +167,5 @@ const InputRow = styled.form`
       ${style.btnPrimary}
     }
 `;
-
-SignUpBar.propTypes = {
-  isTablet: PropTypes.bool,
-  isMobileLarge: PropTypes.bool
-};
-
-SignUpBar.defaultProps = {
-  isTablet: false,
-  isMobileLarge: false
-};
 
 export default SignUpBar;

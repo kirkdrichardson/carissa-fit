@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import style from './../global/Style';
@@ -10,6 +10,8 @@ import variable from './../global/Variable';
 takes arr of strings as photoArr prop
 if photoArr is undefined, ./../global/Variable.photoBarSrcArr is used
 */
+
+// https://hackernoon.com/improve-your-ux-by-dynamically-rendering-images-via-react-onload-393fd4d0d946
 
 const PhotoBar = ({ photoArr }) => // eslint-disable-line object-curly-newline, max-len
   (

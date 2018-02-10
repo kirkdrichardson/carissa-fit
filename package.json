@@ -20,6 +20,7 @@
   },
   "homepage": "http://carissa.fit ",
   "devDependencies": {
+    "eslint": "^4.17.0",
     "gh-pages": "^1.1.0"
   }
 }

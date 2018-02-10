@@ -7,7 +7,7 @@ import { observer } from 'mobx-react';
 import style from './../global/Style';
 // import variable from './../global/Variable';
 import Color from './../global/Color';
-import { MainContentMaxWidth } from './../common/StyledComponentGlobal';
+import { MainContentMaxWidth, slideDownAnimation } from './../common/StyledComponentGlobal';
 
 /**
 takes arr of strings as photoArr prop
@@ -15,7 +15,7 @@ if photoArr is undefined, ./../global/Variable.SignUpBarSrcArr is used
 */
 
 const SignUpBar = observer(({
-  isTablet, isMobileLarge, submitButtonText, children, backgroundColor
+  isTablet, isMobileLarge, submitButtonText, children, backgroundColor, hasTransition
 }) => {
   const handleSubmission = (e) => {
     e.preventDefault();
@@ -68,12 +68,16 @@ const SignUpBar = observer(({
     );
   }
 
+  const animationSnippet = hasTransition ? slideDownAnimation : '';
+
+  console.warn(animationSnippet)
 
   return (
     <SignUpBarContainer
       isTablet={isTablet}
       isMobileLarge={isMobileLarge}
       backgroundColor={backgroundColor}
+      animationSnippet={animationSnippet}
     >
       { contentArrangement }
     </SignUpBarContainer>
@@ -84,20 +88,17 @@ SignUpBar.propTypes = {
   isTablet: PropTypes.bool,
   isMobileLarge: PropTypes.bool,
   submitButtonText: PropTypes.string,
-  children: PropTypes.string.isRequired
+  children: PropTypes.string.isRequired,
+  hasTransition: PropTypes.bool
 };
 
 SignUpBar.defaultProps = {
   isTablet: false,
   isMobileLarge: false,
-  submitButtonText: 'Sign me up!'
-
+  submitButtonText: 'Sign me up!',
+  hasTransition: false
 };
 
-// const slideDown = keyframes`
-//   from { top: -500px; }
-//   to { top: 60px; }
-//   `;
 
 const SignUpBarContainer = styled.div`
   ${style.cssSnippets.flexRow}
@@ -108,6 +109,8 @@ const SignUpBarContainer = styled.div`
   padding: 20px;
   margin: 20px 0;
   font-size: 20px;
+  position: relative;
+  animation: ${props => props.animationSnippet};
 
   img {
     min-width: 100px;

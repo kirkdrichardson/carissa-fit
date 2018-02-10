@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
+import { slideDownAnimation } from './StyledComponentGlobal';
 import style from './../global/Style';
 import variable from './../global/Variable';
 // import color from './../global/Color';
@@ -11,31 +12,50 @@ takes arr of strings as photoArr prop
 if photoArr is undefined, ./../global/Variable.photoBarSrcArr is used
 */
 
-// https://hackernoon.com/improve-your-ux-by-dynamically-rendering-images-via-react-onload-393fd4d0d946
+class PhotoBar extends React.Component {
+  constructor() {
+    super();
+    this.state = { loadedItems: [] };
+  }
 
-const PhotoBar = ({ photoArr }) => // eslint-disable-line object-curly-newline, max-len
-  (
-    <PhotoBarContainer>
-      {
-        photoArr.map(srcString => (
-          <picture key={srcString}>
-            <Image src={srcString} alt='action' />
-          </picture>
-         ))
-      }
-    </PhotoBarContainer>
-  );
+  onLoad(feedItem) {
+    this.setState(({ loadedItems }) =>
+      ({ loadedItems: loadedItems.concat(feedItem) }));
+  }
 
-// const slideDown = keyframes`
-//   from { top: -500px; }
-//   to { top: 60px; }
-//   `;
+  render() {
+    const { photoArr } = this.props;
+    return (
+      <PhotoBarContainer>
+        { this.state.loadedItems.length === photoArr.length &&
+          photoArr.map(srcString => (
+            <picture key={srcString}>
+              <Image src={srcString} alt='action' />
+            </picture>
+           ))
+        }
+        { /* this hidden div loads the images before they are rendered */ }
+        <div style={{ display: 'none' }}>
+          {photoArr.map(srcString =>
+            (<img
+              src={srcString}
+              onLoad={this.onLoad.bind(this, srcString)}
+              key={srcString}
+              alt=''
+            />))}
+        </div>
+      </PhotoBarContainer>
+    );
+  }
+}
 
 const PhotoBarContainer = styled.div`
   ${style.cssSnippets.flexRow}
-    box-sizing: border-box;
+  box-sizing: border-box;
   width: 100%;
   picture {
+    position: relative;
+    animation: ${slideDownAnimation};
     margin-right: 4px;
     :nth-last-child(1) {
       margin-right: 0;

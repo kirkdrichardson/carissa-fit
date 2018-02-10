@@ -13,7 +13,7 @@ const Dropdown = observer(class Dropdown extends React.Component {
       isOpen: false
     };
   }
-
+  // https://github.com/eslint/eslint/issues/4683
   toggleOpenState = () => this.setState({ isOpen: !this.state.isOpen });
 
   render() {

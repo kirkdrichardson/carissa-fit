@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import style from './../global/Style';
 
@@ -6,6 +6,13 @@ import style from './../global/Style';
 
 export const MainContentMaxWidth = 1200;
 export const MainContentMinWidth = 360;
+
+export const slideDown = keyframes`
+  from { top: -500px; }
+  to { top: 0px; }
+  `;
+
+export const slideDownAnimation = `${slideDown} 2s ease-out`;
 
 export const PageContainer = styled.div`
   width: 100%;
@@ -24,4 +31,6 @@ export const MainContentWrapper = styled.div`
   height: 100%;
   ${style.cssSnippets.flexColumn}
   flex-wrap: nowrap;
+  position: relative;
+  animation: ${slideDownAnimation};
 `;

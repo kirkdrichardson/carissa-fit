@@ -1,0 +1,28 @@
+{
+  "name": "carissa-fit",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "mobx": "^3.4.1",
+    "mobx-react": "^4.3.5",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.0.17",
+    "styled-components": "^2.4.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && gh-pages -d build"
+  },
+  "homepage": "http://carissa.fit ",
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.17.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "gh-pages": "^1.1.0"
+  }
+}

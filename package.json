@@ -1,28 +1,31 @@
 {
-  "name": "carissa-fit",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "mobx": "^3.4.1",
-    "mobx-react": "^4.3.5",
-    "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-scripts": "1.0.17",
-    "styled-components": "^2.4.0"
+  "name": "heroku-cra-node",
+  "version": "1.0.0",
+  "description": "How to use create-react-app with a custom Node API on Heroku",
+  "engines": {
+    "node": "8.9.x"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "deploy": "npm run build && gh-pages -d build"
+    "start": "node server",
+    "heroku-postbuild": "cd react-ui/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
-  "homepage": "http://carissa.fit ",
-  "devDependencies": {
-    "babel-eslint": "^8.2.1",
-    "eslint": "^4.17.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "gh-pages": "^1.1.0"
-  }
+  "cacheDirectories": [
+    "node_modules",
+    "react-ui/node_modules"
+  ],
+  "dependencies": {
+    "express": "^4.14.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mars/heroku-cra-node.git"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "create-react-app",
+    "react"
+  ],
+  "license": "MIT",
+  "devDependencies": {}
 }

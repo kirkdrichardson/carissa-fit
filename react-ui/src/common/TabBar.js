@@ -16,6 +16,7 @@ const TabBar = observer(({ children, routingStore }) => (
           returnCurrentPageComponent={routingStore.returnCurrentPageComponent}
           isActive={Boolean(tab.key === routingStore.currentPageKey)}
           key={tab.key}
+          href={tab.href}
         >
           { tab.title }
         </Tab>)) }

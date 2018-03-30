@@ -14,13 +14,15 @@ import Color from './../global/Color';
 
 // TODO - add conditional logic to return a web header or mobile header depending on breakpoint prop
 const Header = observer(({ routingStore }) => {
+  /* eslint-disable object-curly-newline */
   const NavigationData = [
-    { key: 'HOME', title: 'HOME', onClick: e => routingStore.returnCurrentPageComponent(e.currentTarget.id) },
-    { key: 'BLOG', title: 'BLOG', onClick: e => routingStore.returnCurrentPageComponent(e.currentTarget.id) },
-    { key: 'SERVICES', title: 'SERVICES', onClick: e => routingStore.returnCurrentPageComponent(e.currentTarget.id) },
-    { key: 'TESTIMONIALS', title: 'TESTIMONIALS', onClick: e => routingStore.returnCurrentPageComponent(e.currentTarget.id) },
-    { key: 'CONTACT', title: 'CONTACT', onClick: e => routingStore.returnCurrentPageComponent(e.currentTarget.id) }
+    { key: 'HOME', href: '/', title: 'HOME', onClick: e => routingStore.returnCurrentPageComponent(e.currentTarget.id) },
+    { key: 'BLOG', href: '/blog', title: 'BLOG', onClick: e => routingStore.returnCurrentPageComponent(e.currentTarget.id) },
+    { key: 'SERVICES', href: '/services', title: 'SERVICES', onClick: e => routingStore.returnCurrentPageComponent(e.currentTarget.id) },
+    { key: 'TESTIMONIALS', href: '/testimonial', title: 'TESTIMONIALS', onClick: e => routingStore.returnCurrentPageComponent(e.currentTarget.id) },
+    { key: 'CONTACT', href: 'contact', title: 'CONTACT', onClick: e => routingStore.returnCurrentPageComponent(e.currentTarget.id) }
   ];
+  /* eslint-enable object-curly-newline */
 
   let Navigation = null;
   let SocialLinks = null;

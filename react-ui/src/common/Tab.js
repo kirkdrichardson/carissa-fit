@@ -2,18 +2,26 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
+import { Link } from 'react-router-dom';
+
 // import style from './../global/Style';
 import Color from './../global/Color';
 
-const Tab = ({ children, isActive, returnCurrentPageComponent, pageKey }) => // eslint-disable-line object-curly-newline, max-len
+const Tab = ({ children, isActive, returnCurrentPageComponent, pageKey, href }) => // eslint-disable-line object-curly-newline, max-len
   (
-    <TabContainer id={pageKey} onClick={e => returnCurrentPageComponent(e.currentTarget.id)}>
-      <Text isActive={isActive}>{ children }</Text>
-      <TabUnderline isActive={isActive} />
-    </TabContainer>
+    <Link to={href} style={{ textDecoration: 'none' }}>
+      <TabContainer
+        id={pageKey}
+        onClick={e => returnCurrentPageComponent(e.currentTarget.id)}
+      >
+        <Text isActive={isActive}>{ children }</Text>
+        <TabUnderline isActive={isActive} />
+      </TabContainer>
+    </Link>
   );
 
 const TabContainer = styled.div`
+  text-decoration: none;
   position: relative;
   padding 6px 0;
   cursor: pointer;
@@ -40,7 +48,8 @@ Tab.propTypes = {
   children: PropTypes.string.isRequired,
   isActive: PropTypes.bool,
   returnCurrentPageComponent: PropTypes.func.isRequired,
-  pageKey: PropTypes.string.isRequired
+  pageKey: PropTypes.string.isRequired,
+  href: PropTypes.string
 };
 
 Tab.defaultProps = {

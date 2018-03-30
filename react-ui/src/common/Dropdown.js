@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
+import { Link } from 'react-router-dom';
 
 import style from './../global/Style';
 // import color from './../global/Color';
@@ -33,7 +34,9 @@ const Dropdown = observer(class Dropdown extends React.Component {
                 id={listItem.key}
                 onClick={listItem.onClick}
               >
-                { listItem.title }
+                <Link to={listItem.href} style={styles.link}>
+                  { listItem.title }
+                </Link>
               </li>
             )
           }
@@ -42,6 +45,15 @@ const Dropdown = observer(class Dropdown extends React.Component {
     );
   }
 });
+
+const styles = {
+  link: {
+    textDecoration: 'none',
+    display: 'block',
+    padding: '12px 26px',
+    border: '1px solid coral'
+  }
+}
 
 const DropdownContainer = styled.nav`
   position: relative;
@@ -57,6 +69,7 @@ const Options = styled.ul`
   list-style-type: none;
   li {
     cursor: pointer;
+    padding: 0;
   }
 `;
 

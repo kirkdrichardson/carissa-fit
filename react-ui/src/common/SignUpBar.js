@@ -70,8 +70,6 @@ const SignUpBar = observer(({
 
   const animationSnippet = hasTransition ? slideDownAnimation : '';
 
-  console.warn(animationSnippet)
-
   return (
     <SignUpBarContainer
       isTablet={isTablet}

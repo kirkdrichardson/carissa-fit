@@ -8,6 +8,7 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
     "styled-components": "^2.4.0"
   },
@@ -21,8 +22,11 @@
   "homepage": "http://carissa.fit ",
   "devDependencies": {
     "babel-eslint": "^8.2.1",
-    "eslint": "^4.17.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.10.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
     "gh-pages": "^1.1.0"
   }
 }

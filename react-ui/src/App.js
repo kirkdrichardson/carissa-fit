@@ -19,22 +19,19 @@ const App = observer(class App extends React.Component {
     window.removeEventListener('resize', this.updateWindowDimensions);
   }
 
-    // https://github.com/eslint/eslint/issues/4683
+  // https://github.com/eslint/eslint/issues/4683
   updateWindowDimensions = () => {
     this.props.routingStore.handleStateChange('windowHeight', window.innerHeight);
     this.props.routingStore.handleStateChange('windowWidth', window.innerWidth);
   }
-  /* eslint-enable no-undef */
 
   render() {
-    const { routingStore } = this.props; // eslint-disable-line react/prop-types
+    const { routingStore, children } = this.props; // eslint-disable-line react/prop-types
     return (
-      <ReactContainer id='react-container'>
+      <ReactContainer id="react-container">
         <Header routingStore={routingStore} />
         <MainContainer>
-          {
-            routingStore.returnCurrentPageComponent(routingStore.currentPageKey)
-          }
+          { children }
         </MainContainer>
       </ReactContainer>
     );
@@ -42,7 +39,7 @@ const App = observer(class App extends React.Component {
 });
 
 App.propTypes = {
-  routingStore: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
+  routingStore: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 };
 
 const ReactContainer = styled.div`

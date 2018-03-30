@@ -60,11 +60,7 @@ class RoutingStore {
             (Object.prototype.hasOwnProperty.call(PAGEMAP, pageKey))) {
           // set observable currentPageKey to requested page
           this.currentPageKey = pageKey;
-          // return page component if component property is defined
-          if (typeof PAGEMAP[pageKey].component === 'object') {
-            return PAGEMAP[pageKey].component;
-          }
-          throw new Error(`PAGEMAP[${pageKey}] != object`);
+          return;
         }
         throw new Error(!(Object.prototype.hasOwnProperty.call(PAGEMAP, pageKey)) ? 'pageKey not found in PAGEMAP' : 'pageKey arg != currentPageKey');
       })

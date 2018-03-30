@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Root from './Root';
 import registerServiceWorker from './registerServiceWorker';
 
 import routingStore from './store/RoutingStore';
 
-ReactDOM.render(<App routingStore={routingStore} />, document.getElementById('root'));
+ReactDOM.render(<Root routingStore={routingStore} />, document.getElementById('root'));
 registerServiceWorker();

@@ -1,54 +1,36 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 
 import { slideDownAnimation } from './StyledComponentGlobal';
 import style from './../global/Style';
-import variable from './../global/Variable';
+// import variable from './../global/Variable';
 // import color from './../global/Color';
+
+import photo1 from '../asset/photobar/1.jpg';
+import photo2 from '../asset/photobar/2.jpg';
+import photo3 from '../asset/photobar/3.jpg';
 
 /**
 takes arr of strings as photoArr prop
 if photoArr is undefined, ./../global/Variable.photoBarSrcArr is used
 */
 
-const PhotoBar = observer(class PhotoBar extends React.Component {
-  constructor() {
-    super();
-    this.state = { loadedItems: [] };
-  }
-
-  onLoad(feedItem) {
-    this.setState(({ loadedItems }) =>
-      ({ loadedItems: loadedItems.concat(feedItem) }));
-  }
-
-  render() {
-    const { photoArr } = this.props;
-    return (
-      <PhotoBarContainer>
-        { this.state.loadedItems.length === photoArr.length &&
-          photoArr.map(srcString => (
-            <picture key={`${srcString}-${Math.random()}`}>
-              <Image src={srcString} alt='action' />
-            </picture>
-           ))
-        }
-        { /* this hidden div loads the images before they are rendered */ }
-        <div style={{ display: 'none' }}>
-          {photoArr.map(srcString =>
-            (<img
-              src={srcString}
-              onLoad={this.onLoad.bind(this, srcString)}
-              key={`${srcString}-${Math.random()}`}
-              alt=''
-            />))}
-        </div>
-      </PhotoBarContainer>
-    );
-  }
-});
+const PhotoBar = observer(() =>
+  (
+    <PhotoBarContainer>
+      <picture key='photo-1'>
+        <Image src={photo1} alt='action' />
+      </picture>
+      <picture key='photo-2'>
+        <Image src={photo2} alt='action' />
+      </picture>
+      <picture key='photo-3'>
+        <Image src={photo3} alt='action' />
+      </picture>
+    </PhotoBarContainer>
+  ));
 
 const PhotoBarContainer = styled.div`
   ${style.cssSnippets.flexRow}
@@ -86,12 +68,12 @@ const Image = styled.img`
 
 `;
 
-PhotoBar.propTypes = {
-  photoArr: PropTypes.arrayOf(PropTypes.string)
-};
-
-PhotoBar.defaultProps = {
-  photoArr: variable.photoBarSrcArr
-};
+// PhotoBar.propTypes = {
+//   photoArr: PropTypes.arrayOf(PropTypes.string)
+// };
+//
+// PhotoBar.defaultProps = {
+//   photoArr: variable.photoBarSrcArr
+// };
 
 export default PhotoBar;

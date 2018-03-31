@@ -32,6 +32,7 @@ const Dropdown = observer(class Dropdown extends React.Component {
               <li
                 key={listItem.key}
                 id={listItem.key}
+                data-id={listItem.key}
                 onClick={listItem.onClick}
               >
                 <Link to={listItem.href} style={styles.link}>

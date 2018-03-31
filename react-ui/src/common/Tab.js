@@ -12,6 +12,7 @@ const Tab = ({ children, isActive, returnCurrentPageComponent, pageKey, href }) 
     <Link to={href} style={{ textDecoration: 'none' }}>
       <TabContainer
         id={pageKey}
+        data-id={pageKey}
         onClick={e => returnCurrentPageComponent(e.currentTarget.id)}
       >
         <Text isActive={isActive}>{ children }</Text>

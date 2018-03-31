@@ -25,7 +25,6 @@ class PhotoBar extends React.Component {
 
   render() {
     const { photoArr } = this.props;
-    console.warn(photoArr)
     return (
       <PhotoBarContainer>
         { this.state.loadedItems.length === photoArr.length &&

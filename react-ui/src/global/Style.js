@@ -4,7 +4,8 @@ module.exports = {
   boxShadowLeft: '-5px 5px 10px grey',
   font: {
     header: "font-family: 'Rubik', sans-serif",
-    primary: "font-family: 'Roboto', sans-serif"
+    primary: "font-family: 'Roboto', sans-serif",
+    logo: "font-family: 'Indie Flower', cursive"
   },
   cssSnippets: {
     flexRow: 'display: flex; flex-direction: row wrap; justify-content: center; align-items: center;',
@@ -33,7 +34,7 @@ module.exports = {
         font-weight: bold;
   `,
   btnPrimary: `color: #373737;
-               background-color: #C0B283;
+               background-color: #E27D60;
   `,
   btnSecondary: `color: #373737;
                  background-color: #COB283;

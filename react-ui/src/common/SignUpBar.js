@@ -24,7 +24,7 @@ const SignUpBar = observer(({
   // break JSX up into variables for easier window width arrangement
   const picture = (
     <picture>
-      <img src='https://picsum.photos/200/300' alt='article cover' />
+      <img src='https://picsum.photos/200/300?image=1073' alt='article cover' />
     </picture>
   );
 

@@ -25,6 +25,7 @@ class PhotoBar extends React.Component {
 
   render() {
     const { photoArr } = this.props;
+    console.warn(photoArr)
     return (
       <PhotoBarContainer>
         { this.state.loadedItems.length === photoArr.length &&
@@ -54,6 +55,7 @@ const PhotoBarContainer = styled.div`
   box-sizing: border-box;
   width: 100%;
   picture {
+    flex: 1;
     position: relative;
     animation: ${slideDownAnimation};
     margin-right: 4px;

@@ -41,7 +41,7 @@ const TabUnderline = styled.div`
 
 const Text = styled.p`
   margin: 0;
-  color: ${props => (props.isActive ? Color.component.activeTab : Color.component.textPrimary)};
+  color: ${props => (props.isActive ? Color.component.activeTab : Color.component.navLink)};
 `;
 
 Tab.propTypes = {

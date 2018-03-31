@@ -11,6 +11,8 @@ import style from './../global/Style';
 import Color from './../global/Color';
 // import variable from './../global/Variable';
 
+const LOGO_IS_IMAGE = false;
+
 
 // TODO - add conditional logic to return a web header or mobile header depending on breakpoint prop
 const Header = observer(({ routingStore }) => {
@@ -62,9 +64,18 @@ const Header = observer(({ routingStore }) => {
   return (
     <HeaderWeb isTablet={routingStore.isTablet}>
       <LogoContainer isTablet={routingStore.isTablet}>
+        {
+        LOGO_IS_IMAGE &&
         <Logo>
           <img src='https://picsum.photos/170/46?image=65' alt='logo' />
         </Logo>
+      }
+        {
+        !LOGO_IS_IMAGE &&
+          <SiteTitle>
+            {'Carissa.fit'}
+          </SiteTitle>
+      }
       </LogoContainer>
       { Navigation }
       { SocialLinks }
@@ -101,6 +112,15 @@ const LogoContainer = styled.div`
 const Logo = styled.picture`
   width: 170px;
   height: 46px;
+`;
+
+const SiteTitle = styled.div`
+  ${style.cssSnippets.flexRow}
+  font-size: 32px;
+  font-weight: 900;
+  width: 170px;
+  height: 46px;
+  ${style.font.logo}
 `;
 
 const NavSection = styled.div`

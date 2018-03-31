@@ -50,8 +50,7 @@ const styles = {
   link: {
     textDecoration: 'none',
     display: 'block',
-    padding: '12px 26px',
-    border: '1px solid coral'
+    padding: '12px 26px'
   }
 }
 
@@ -70,6 +69,12 @@ const Options = styled.ul`
   li {
     cursor: pointer;
     padding: 0;
+    a {
+      color: #373737;
+    }
+    a:visited {
+      color: #373737;
+    }
   }
 `;
 

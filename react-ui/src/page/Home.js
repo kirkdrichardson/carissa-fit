@@ -40,7 +40,6 @@ const Home = observer(() =>
           isTablet={routingStore.isTablet}
           isMobileLarge={routingStore.isMobileLarge}
           submitButtonText={s.signUpBar.submitButton2}
-          backgroundColor={Color.color.rose}
         >
           { getStr(30) }
         </SignUpBar>
@@ -57,6 +56,7 @@ const TextContainer = styled.div`
 
   h1 {
     font-size: 30px;
+    color: ${Color.component.headerText};
   }
 
   h2 {

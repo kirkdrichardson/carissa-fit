@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A personal fitness website",
   "engines": {
-    "node": "8.9.x"
+    "node": "9.10.x"
   },
   "scripts": {
     "start": "node server",
@@ -15,7 +15,7 @@
   ],
   "dependencies": {
     "express": "^4.14.1",
-    "node": "^9.10.0"
+    "node": "^9.10.1"
   },
   "repository": {
     "type": "git",

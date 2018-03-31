@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { observer } from 'mobx-react';
 
 import { slideDownAnimation } from './StyledComponentGlobal';
 import style from './../global/Style';
@@ -12,7 +13,7 @@ takes arr of strings as photoArr prop
 if photoArr is undefined, ./../global/Variable.photoBarSrcArr is used
 */
 
-class PhotoBar extends React.Component {
+const PhotoBar = observer(class PhotoBar extends React.Component {
   constructor() {
     super();
     this.state = { loadedItems: [] };
@@ -47,7 +48,7 @@ class PhotoBar extends React.Component {
       </PhotoBarContainer>
     );
   }
-}
+});
 
 const PhotoBarContainer = styled.div`
   ${style.cssSnippets.flexRow}

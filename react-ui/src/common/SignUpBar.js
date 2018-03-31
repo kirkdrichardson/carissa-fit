@@ -112,6 +112,7 @@ const SignUpBarContainer = styled.div`
 
   img {
     min-width: 100px;
+    max-width: 150px;
     border-radius: 6px;
     box-shadow: ${style.boxShadowLeft};
   }
@@ -166,6 +167,7 @@ const InputRow = styled.form`
     button {
       ${style.btn}
       ${style.btnPrimary}
+      cursor: pointer;
     }
 `;
 

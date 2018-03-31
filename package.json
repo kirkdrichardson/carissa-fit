@@ -1,7 +1,7 @@
 {
-  "name": "heroku-cra-node",
+  "name": "carissa-fit",
   "version": "1.0.0",
-  "description": "How to use create-react-app with a custom Node API on Heroku",
+  "description": "A personal fitness website",
   "engines": {
     "node": "8.9.x"
   },

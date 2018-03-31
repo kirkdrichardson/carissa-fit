@@ -1,41 +1,18 @@
-import React from 'react';
+import React from 'react'; // eslint-disable-line
 import { extendObservable, action } from 'mobx';
 
 import variable from './../global/Variable';
 
-import Home from './../page/Home';
-import Blog from './../page/Blog';
-import Services from './../page/Services';
-import Testimonial from './../page/Testimonial';
-import Contact from './../page/Contact';
+export const PAGE = {
+  HOME: 'HOME',
 
-export const PAGEMAP = {
+  BLOG: 'BLOG',
 
-  HOME: {
-    key: 'HOME',
-    component: <Home />
-  },
+  SERVICES: 'SERVICES',
 
-  BLOG: {
-    key: 'BLOG',
-    component: <Blog />
-  },
+  TESTIMONIALS: 'TESTIMONIALS',
 
-  SERVICES: {
-    key: 'SERVICES',
-    component: <Services />
-  },
-
-  TESTIMONIALS: {
-    key: 'TESTIMONIAL',
-    component: <Testimonial />
-  },
-
-  CONTACT: {
-    key: 'CONTACT',
-    component: <Contact />
-
-  }
+  CONTACT: 'CONTACT'
 };
 
 class RoutingStore {
@@ -57,12 +34,12 @@ class RoutingStore {
       }),
       returnCurrentPageComponent: action((pageKey) => {
         if ((typeof pageKey === 'string') &&
-            (Object.prototype.hasOwnProperty.call(PAGEMAP, pageKey))) {
+            (Object.prototype.hasOwnProperty.call(PAGE, pageKey))) {
           // set observable currentPageKey to requested page
           this.currentPageKey = pageKey;
           return;
         }
-        throw new Error(!(Object.prototype.hasOwnProperty.call(PAGEMAP, pageKey)) ? 'pageKey not found in PAGEMAP' : 'pageKey arg != currentPageKey');
+        throw new Error(!(Object.prototype.hasOwnProperty.call(PAGE, pageKey)) ? 'pageKey not found in PAGE' : 'pageKey arg != currentPageKey');
       })
     });
   }

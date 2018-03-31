@@ -18,11 +18,11 @@ const LOGO_IS_IMAGE = false;
 const Header = observer(({ routingStore }) => {
   /* eslint-disable object-curly-newline */
   const NavigationData = [
-    { key: 'HOME', href: '/', title: 'HOME', onClick: e => routingStore.returnCurrentPageComponent(e.currentTarget.id) },
-    { key: 'BLOG', href: '/blog', title: 'BLOG', onClick: e => routingStore.returnCurrentPageComponent(e.currentTarget.id) },
-    { key: 'SERVICES', href: '/services', title: 'SERVICES', onClick: e => routingStore.returnCurrentPageComponent(e.currentTarget.id) },
-    { key: 'TESTIMONIALS', href: '/testimonial', title: 'TESTIMONIALS', onClick: e => routingStore.returnCurrentPageComponent(e.currentTarget.id) },
-    { key: 'CONTACT', href: 'contact', title: 'CONTACT', onClick: e => routingStore.returnCurrentPageComponent(e.currentTarget.id) }
+    { key: 'HOME', href: '/', title: 'HOME', onClick: e => routingStore.returnCurrentPageComponent(e.currentTarget.dataset.id) },
+    { key: 'BLOG', href: '/blog', title: 'BLOG', onClick: e => routingStore.returnCurrentPageComponent(e.currentTarget.dataset.id) },
+    { key: 'SERVICES', href: '/services', title: 'SERVICES', onClick: e => routingStore.returnCurrentPageComponent(e.currentTarget.dataset.id) },
+    { key: 'TESTIMONIALS', href: '/testimonial', title: 'TESTIMONIALS', onClick: e => routingStore.returnCurrentPageComponent(e.currentTarget.dataset.id) },
+    { key: 'CONTACT', href: 'contact', title: 'CONTACT', onClick: e => routingStore.returnCurrentPageComponent(e.currentTarget.dataset.id) }
   ];
   /* eslint-enable object-curly-newline */
 

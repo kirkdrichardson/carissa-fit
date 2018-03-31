@@ -30,7 +30,7 @@ const PhotoBar = observer(class PhotoBar extends React.Component {
       <PhotoBarContainer>
         { this.state.loadedItems.length === photoArr.length &&
           photoArr.map(srcString => (
-            <picture key={srcString}>
+            <picture key={`${srcString}-${Math.random()}`}>
               <Image src={srcString} alt='action' />
             </picture>
            ))
@@ -41,7 +41,7 @@ const PhotoBar = observer(class PhotoBar extends React.Component {
             (<img
               src={srcString}
               onLoad={this.onLoad.bind(this, srcString)}
-              key={srcString}
+              key={`${srcString}-${Math.random()}`}
               alt=''
             />))}
         </div>
